@@ -86,6 +86,10 @@ client.on("message", async message => {
         message.channel.send("https://discordapp.com/api/oauth2/authorize?client_id=638419700933459969&scope=bot&permissions=8");
         return;
     }
+    if(command === "github") {
+      message.channel.send("https://github.com/Jaccus1/Ed-Jaccus");
+      return;
+    }
     if(command === "say") {
         const sayMessage = args.join(" ");
         message.delete().catch(O_o=>{}); 
