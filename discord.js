@@ -102,9 +102,9 @@ client.on("message", async message => {
             if(err) return console.log(err);
             //for (l = 0; l < 3; l++) {
                 //console.log(results[l].link)
-                //message.channel.sendMessage(results[l].link);
+                //message.channel.send(results[l].link);
             //}
-            message.channel.sendMessage(results[0].link);
+            message.channel.send(results[0].link);
         });
         return;
     }
