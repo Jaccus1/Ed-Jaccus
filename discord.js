@@ -105,6 +105,8 @@ client.on("message", async message => {
         return;
     }
         if(command === "kick") {
+          if (!message.member.hasPermission("ADMINISTRATOR" || "KICK_MEMBERS"))
+            return message.reply("You do not have permission to do this!");
             let member = message.mentions.members.first() || message.guild.members.get(args[0]);
             if(!member)
               return message.reply("I do not know who that is!\n Try mentioning the user target instead.");
@@ -120,6 +122,8 @@ client.on("message", async message => {
             return;
         }
         if(command === "ban") {
+          if (!message.member.hasPermission("ADMINISTRATOR" || "BAN_MEMBERS"))
+            return message.reply("You do not have permission to do this!");
             let member = message.mentions.members.first();
             if(!member)
               return message.reply("I do not know who that is!\n Try mentioning the user target instead.");
@@ -135,6 +139,8 @@ client.on("message", async message => {
             return;
           }
           if(command === "purge") {
+            if (!message.member.hasPermission("ADMINISTRATOR" || "MANAGE_MESSAGES"))
+            return message.reply("You do not have permission to do this!");
                     const deleteCount = parseInt(args[0], 1000);
             
                     //if(!deleteCount || deleteCount < 0 || deleteCount > 6000)
