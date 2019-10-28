@@ -1,4 +1,2 @@
 # Ed-Jaccus
-Cool Bot
-Change this description
-no u
+Cool Bot for Cool Stuff
