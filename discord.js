@@ -41,7 +41,7 @@ const embed = {
       },
       {
         "name": "Purge (Number)",
-        "value": "Bulk deletes (Number) messages. (Number) must be between 2 and 1000 to avoid errors."
+        "value": "Bulk deletes (Number) messages. (Number) must be between 2 and 6000 to avoid errors."
       },
       {
         "name": "Say (Argument)",
@@ -145,10 +145,10 @@ client.on("message", async message => {
           if(command === "purge") {
             if (!message.member.hasPermission("MANAGE_MESSAGES"))
             return message.reply("You do not have permission to do this!");
-                    const deleteCount = parseInt(args[0], 1000);
+                    const deleteCount = parseInt(args[0], 10);
             
-                    //if(!deleteCount || deleteCount < 0 || deleteCount > 6000)
-                        //return message.reply("I cannot delete that many messages!");
+                    if(!deleteCount || deleteCount < 2 || deleteCount > 6000)
+                        return message.reply("I cannot delete that many messages!");
             
                     const fetched = await message.channel.fetchMessages({limit: deleteCount});
                     message.channel.bulkDelete(fetched)
